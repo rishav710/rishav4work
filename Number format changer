@@ -1,0 +1,150 @@
+//This is the number format changer program (code by rishav kumar )
+
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Enter the format : ");
+            System.out.println("1.Binary to decimal\n2.Decimal to binary\n3.Decimal to octal\n4.Octal to decimal\n5.Binary to Octal\n6.Octal to binary\n7.Exit yet");
+            System.out.print("->");
+            String format = sc.nextLine();
+            if (format.equals("Binary to decimal") || format.equals("binary to decimal")) {
+                binaryToDecimal(1);
+            } else if (format.equals("Decimal to binary") || format.equals("decimal to binary")) {
+                deciToBinary(2);
+            } else if (format.equals("Decimal to octal") || format.equals("decimal to octal")) {
+                deciToOctal(3);
+            } else if(format.equals("Octal to decimal") || format.equals("octal to decimal")) {
+                OctalTodeci(4);
+            } else if(format.equals("Binary to octal") || format.equals("binary to octal")) {
+                binaryToOctal(5);
+
+            } else if (format.equals("Octal to binary") || format.equals("octal to binary")) {
+                OctalToBin(6);
+            } else if (format.equals("Exit yet")|| format.equals("exit yet")) {
+                System.out.println("Thanks for using rishav's program");
+                return;
+            } else {
+                System.out.println("Invalid input , try again next time");
+                return;
+            }
+            int times=0;
+            int retry=4;
+            for( times=0; times<retry; times++) {
+                System.out.print("Do you want to continue? (yes/no): ");
+                String choice = sc.nextLine();
+                if (choice.equals("yes") || choice.equals("y")) {
+                    break;
+                } else if (choice.equals("no") || choice.equals("n")) {
+                    System.out.println("Thanks for using rishav's program");
+                    return;
+                }
+                else{
+                    System.out.println("Wrong choice. Try again.");
+                }
+            }
+            if(times==retry){
+                System.out.println("Maximum times reached !");
+            }
+        }while(true);
+    }public static int getInteger ( int n) {
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }public static void binaryToDecimal(int first) {
+        System.out.println("Enter the binary number :");
+        int num = getInteger(first);
+        int result = 0;
+        int pow = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            num /= 10;
+            result =  rem * (int)Math.pow(2,pow)+result;
+            pow++;
+        }
+        System.out.println(result);
+
+
+    }public static void deciToBinary(int second) {
+        System.out.println("Enter the decimal number :");
+        int num = getInteger(second);
+        int result = 0;
+        int pow = 0;
+        while (num > 0) {
+            int rem = num % 2;
+            num = num / 2;
+            result = rem * (int) Math.pow(10, pow) + result;
+            pow++;
+        }
+        System.out.println("Binary = "+result);
+    }public static void deciToOctal(int third ){
+        System.out.println("Enter the decimal number :");
+        int deci = getInteger(third);
+        int result = 0;
+        int pow = 0;
+        while (deci> 0) {
+            int rem = deci % 8;
+            deci = deci / 8;
+            result = rem * (int) Math.pow(10, pow) + result;
+            pow++;
+        }
+        System.out.println("Decimal = "+result);
+    }public static void OctalTodeci(int four){
+        System.out.println("Enter the octal number :");
+        int num = getInteger(four);
+        int result = 0;
+        int pow = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            num = num / 10;
+            result = rem * (int) Math.pow(8, pow) + result;
+            pow++;
+        }
+        System.out.println("Decimal = " +result);
+    }public static void binaryToOctal(int five) {
+        System.out.println("Enter the binary  number for octal :");
+        int num = getInteger(five);
+        int result = 0;
+        int pow = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            num = num / 10;
+            result = rem * (int) Math.pow(2, pow) + result;
+            pow++;
+        }
+        int decimal = result;
+        int octal = 0;
+        int power=0;
+        while (decimal > 0) {
+            int rem = decimal % 8;
+            decimal = decimal / 8;
+            octal = rem* (int)Math.pow(10,power)+octal;
+            power++;
+        }
+        System.out.println("Octal = "+octal);
+
+    }public static void OctalToBin(int five) {
+        System.out.println("Enter the Octal number for binary :");
+        int num = getInteger(five);
+        int result = 0;
+        int pow = 0;
+        while (num > 0) {
+            int rem = num % 10;
+            num = num / 10;
+            result = rem * (int)Math.pow(8,pow)+result;
+            pow++;
+        }
+     //   System.out.println(result);
+        int decimal = result;
+        int newresult = 0;
+        int power=0;
+        while (decimal > 0) {
+            int rem = decimal % 2;
+            decimal = decimal / 2;
+            newresult = rem * (int)Math.pow(10,power)+newresult;
+            power++;
+        }
+        System.out.println("Binary = "+newresult);
+    }
+
+}

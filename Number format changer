@@ -11,17 +11,71 @@ public class Main {
             String format = sc.nextLine();
             if (format.equals("Binary to decimal") || format.equals("binary to decimal")) {
                 binaryToDecimal(1);
+                        do {
+                            System.out.println("Do you want to stay here ? (yes/no)");
+                            String ans = sc.nextLine();
+                            if (ans.equals("yes")) {
+                                binaryToDecimal(1);
+                            } else if (ans.equals("no")) {
+                                break;
+                            }
+                        }while (true);
             } else if (format.equals("Decimal to binary") || format.equals("decimal to binary")) {
                 deciToBinary(2);
+                do {
+                    System.out.println("Do you want to stay here ? (yes/no)");
+                    String ans = sc.nextLine();
+                    if (ans.equals("yes")) {
+                        deciToBinary(2);
+                    } else if (ans.equals("no")) {
+                        break;
+                    }
+                }while (true);
             } else if (format.equals("Decimal to octal") || format.equals("decimal to octal")) {
                 deciToOctal(3);
+                do {
+                    System.out.println("Do you want to stay here ? (yes/no)");
+                    String ans = sc.nextLine();
+                    if (ans.equals("yes")) {
+                       deciToOctal(3);
+                    } else if (ans.equals("no")) {
+                        break;
+                    }
+                }while (true);
             } else if(format.equals("Octal to decimal") || format.equals("octal to decimal")) {
                 OctalTodeci(4);
+                do {
+                    System.out.println("Do you want to stay here ? (yes/no)");
+                    String ans = sc.nextLine();
+                    if (ans.equals("yes")) {
+                        OctalTodeci(1);
+                    } else if (ans.equals("no")) {
+                        break;
+                    }
+                }while (true);
             } else if(format.equals("Binary to octal") || format.equals("binary to octal")) {
                 binaryToOctal(5);
+                do {
+                    System.out.println("Do you want to stay here ? (yes/no)");
+                    String ans = sc.nextLine();
+                    if (ans.equals("yes")) {
+                        binaryToOctal(1);
+                    } else if (ans.equals("no")) {
+                        break;
+                    }
+                }while (true);
 
             } else if (format.equals("Octal to binary") || format.equals("octal to binary")) {
                 OctalToBin(6);
+                do {
+                    System.out.println("Do you want to stay here ? (yes/no)");
+                    String ans = sc.nextLine();
+                    if (ans.equals("yes")) {
+                       OctalToBin(1);
+                    } else if (ans.equals("no")) {
+                        break;
+                    }
+                }while (true);
             } else if (format.equals("Exit yet")|| format.equals("exit yet")) {
                 System.out.println("Thanks for using rishav's program");
                 return;
@@ -32,7 +86,7 @@ public class Main {
             int times=0;
             int retry=4;
             for( times=0; times<retry; times++) {
-                System.out.print("Do you want to continue? (yes/no): ");
+                System.out.print("Do you want to continue the format ? (yes/no): ");
                 String choice = sc.nextLine();
                 if (choice.equals("yes") || choice.equals("y")) {
                     break;
@@ -47,7 +101,10 @@ public class Main {
             if(times==retry){
                 System.out.println("Maximum times reached !");
             }
+
+
         }while(true);
+
     }public static int getInteger ( int n) {
         Scanner sc = new Scanner(System.in);
         return sc.nextInt();
@@ -62,7 +119,7 @@ public class Main {
             result =  rem * (int)Math.pow(2,pow)+result;
             pow++;
         }
-        System.out.println(result);
+        System.out.println("Decimal = "+result);
 
 
     }public static void deciToBinary(int second) {

@@ -86,7 +86,7 @@ public class Main {
             int times=0;
             int retry=4;
             for( times=0; times<retry; times++) {
-                System.out.print("Do you want to continue the format ? (yes/no): ");
+                System.out.print("Do you want to change the format ? (yes/no): ");
                 String choice = sc.nextLine();
                 if (choice.equals("yes") || choice.equals("y")) {
                     break;
